@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'myapp/css/bootstrap.css' %}">
+    <title>congrats</title>
+</head>
+<style>
+    body {
+        background-image: url('https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png');
+        background-attachment: fixed;
+        background-size: cover;
+      }
+    h1{
+        text-align: center;
+        color: rgb(8, 72, 51);
+    }
+    div{
+        text-align: center;
+    }
+</style>
+<body>
+    <div>
+        <h1 style="margin-top: 50px ;">Customer have been Updated Successfully!</h1><br>
+        <a  href="{% url 'showcustomers' %}" class="btn btn-info">Show Customer!</a><br><br>
+        <a href="/" class="btn btn-primary">Back To Home!</a><br><br>
+        <a  class="btn btn-danger" href="/signout"> LogOut </a> 
+    </div>
+</body>
+</html>

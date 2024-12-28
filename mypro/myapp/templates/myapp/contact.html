@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'myapp/css/bootstrap.css' %}">
+    <title>Contact Us!</title>
+</head>
+<style>
+    body {
+        background-image: url('https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png');
+        background-attachment: fixed;
+        background-size: cover;
+      }
+</style>
+<body>
+    <div class="row">
+        <div class="col-sm-4"></div>
+            <center><div class="col-sm-4" id="contact-form">
+                <h2><pre>Get In Touch</pre></h2>
+                <form action="contact" id="ContactUs100" method="post" onsubmit="return ValidateForm(this);">
+                    {% csrf_token %}
+                    <!-- <script type="text/javascript">
+                    function ValidateForm(frm) {
+                    if (frm.Name.value == "") { alert('Name is required.'); frm.Name.focus(); return false; }
+                    if (frm.FromEmailAddress.value == "") { alert('Email address is required.'); frm.FromEmailAddress.focus(); return false; }
+                    if (frm.FromEmailAddress.value.indexOf("@") < 1 || frm.FromEmailAddress.value.indexOf(".") < 1) { alert('Please enter a valid email address.'); frm.FromEmailAddress.focus(); return false; }
+                    if (frm.Comments.value == "") { alert('Please enter comments or questions.'); frm.Comments.focus(); return false; }
+                    return true;}
+                    </script> -->
+                    <table style="width:100%;max-width:550px;border:0;" cellpadding="8" cellspacing="0">
+                        <div>
+                            <label for="Name"><h4 style="color:rgb(5, 21, 18)"><pre>Name</pre></h4></label>
+                            <input name="Name" class="form-control mb-2 mr-sm-2" type="text" maxlength="60" style="width:100%;max-width:250px;" placeholder="Enter Your Fullname" required/><br>
+                        </div>
+                        <div>
+                            <label for="PhoneNumber"><h4 style="color:rgb(5, 21, 18)"><pre>Mobile Number</pre></h4></label>
+                            <input name="PhoneNumber"  class="form-control mb-2 mr-sm-2" type="text" maxlength="43" style="width:100%;max-width:250px;" placeholder="Enter Your Mobile No." required /><br>
+                            {% for message in messages%}
+                                <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                                <strong>Message:</strong>{{message}}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                {% endfor %}
+                        </div>
+                        <div>
+                            <label for="FromEmailAddress"><h4 style="color:rgb(5, 21, 18)"><pre>Email</pre></h4></label>
+                            <input name="FromEmailAddress"  class="form-control mb-2 mr-sm-2" type="text" maxlength="90" style="width:100%;max-width:250px;" placeholder="Enter Your Email Id " required/><br>
+                        </div>
+                        <div>
+                            <label for="Comments"><h4 style="color:rgb(5, 21, 18)"><pre>Comment</pre></h4></label>
+                            <textarea name="Comments" class="form-control mb-2 mr-sm-2" rows="7" cols="40" style="width:100%;max-width:350px;" placeholder="Feel Free to write your comments here! " required></textarea>
+                        </div>
+                        <div>
+                            <button name="skip_Submit" type="submit" class="btn btn-outline-dark btn-lg" value="Submit">Submit</button>
+                            <br><br> <a href="/" class="btn btn-outline-dark">Back to Home!</a> 
+                        </div>
+                    </table>
+                </form>
+            </div> </center>
+        <div class="col-sm-4"></div>
+    </div>
+</body>
+</html>
+
+
+
+

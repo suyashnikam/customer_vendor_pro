@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'myapp/css/bootstrap.css' %}">
+    <title>congrats</title>
+</head>
+<style>
+    body {
+        background-image: url('https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png');
+        background-attachment: fixed;
+        background-size: cover;
+      }
+    h1{
+        text-align: center;
+        color: rgb(8, 72, 51);
+    }
+    div{
+        text-align: center;
+    }
+</style>
+<body>
+    <div>
+        <h4 style="margin-top: 50px ;color:rgb(64, 21, 14)"><pre>Are you sure want to delete a Registered Vendor: {{cus.username|title}}? </pre></h4><br>
+        <form action="{% url 'deletevendor' cus.id %}" method="post"  class="d-inline">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger btn-lg" id="errorAlert" value="Delete">
+        </form><br><br>
+        <a  href="{% url 'showvendors' %}" class="btn btn-info">Cancel</a><br><br>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url('https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png');
+            background-attachment: fixed;
+            background-size: cover;
+          }
+        div{text-align: center;}
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'myapp/css/bootstrap.css' %}">
+    <title>Update Vendor</title>
+</head>
+<script>
+    function validation()
+    {
+        var a = document.getElementById('email').value;
+        var b = document.getElementById('mobile').value;
+        if (a == "")
+        {
+            document.getElementById('A_messages').innerHTML="** Please enter Customer's Email";
+            return false;
+        }
+        if (b == "")
+        {
+            document.getElementById('B_messages').innerHTML="** Please enter Customer's mobile number!";
+            return false;
+        }
+        if (b.length<10)
+        {
+            document.getElementById('B_messages').innerHTML="** Mobile Number Must be of 10 digits!";
+            return false;
+        }
+        if (b.length > 10)
+        {
+            document.getElementById('B_messages').innerHTML="** Mobile Number Must be of 10 digits!";
+            return false;
+        }
+        if(isNaN(b)){
+            document.getElementById('B_messages').innerHTML="** Mobile number should be in Numbers only!";
+            return false;
+        }
+    }
+</script>
+<body>
+    <div style="margin-top:50px ;" class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4 ">
+            <h4 class="alert alert-info"><pre>Update Vendor Information!</pre></h4>
+            <marquee><small id="Currentuser" style="color:rgb(14, 73, 98)" class="form-text "><h5>You are updating {{member.username|title}}'s details!</h5></marquee></small>
+            <form onsubmit="return validation()" action="FinalUpdateVendor"  method="post">
+                {% csrf_token %}
+                <fieldset disabled>
+                    <h4><pre style="color:rgb(2, 51, 73)">Username</pre></h4>
+                    <input type="text" class="form-control" id="username"  value={{member.username|title}}>
+                    <marquee><small id="Currentuser" style="color:rgb(14, 73, 98)" class="form-text ">You Cannot Update Username!</marquee></small>
+                </fieldset>
+                <div class="form-group">
+                  <h4><pre style="color:rgb(2, 51, 73)">Email</pre></h4>
+                  <input type="email" name="email" class="form-control" id="email"  value={{member.email}}>
+                  <span id="A_messages"></span>
+                </div><br>
+                    <h4><pre style="color:rgb(2, 51, 73)">First Name</pre></h4>
+                    <input type="text" name="fname" class="form-control" id="fname" value={{member.first_name}}><br>
+                    <h4><pre style="color:rgb(12, 28, 36)">Last Name</pre></h4>
+                    <input type="text" name="lname" class="form-control" id="lname" value={{member.last_name}}><br>
+                    <h4><pre style="color:rgb(12, 28, 36)">Mobile</pre></h4>
+                    <input type="text" name="mobile" class="form-control" id="mobile" value={{member.mobile}}><br>
+                    <span id="B_messages"></span>
+                <br><input type="submit" class="btn btn-outline-dark btn-lg" value="Update">
+                <a href="{% url 'showvendors' %}" style="margin-left:10px;" class="btn btn-outline-dark">Back</a>
+            </form>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+</body>
+</html>

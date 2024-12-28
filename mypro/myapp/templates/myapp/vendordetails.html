@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Vendordetails</title>
+</head>
+<style>
+    body {
+        background-image: url('https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png');
+        background-attachment: fixed;
+        background-size: cover;
+      }
+    div{
+        text-align: center;
+    }
+   
+</style>
+<body>
+<div style="margin-top:50px ;" class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <h4 class="alert alert-info"><pre>Vendors details Information!</pre></h4>
+        <h2 style="text-align:left;"><pre>Username: {{member.username|title}}</pre>
+        <h2 style="text-align:left;"><pre>First Name: {{member.first_name|title}}</pre>
+        <h2 style="text-align:left;"><pre>Last Name: {{member.last_name|title}}</pre></h2>
+        <h2 style="text-align:left;"><pre>Email: {{member.email}}</pre></h2>
+        <h2 style="text-align:left;"><pre>Mobile: {{member.mobile}}</pre></h2>
+        <h2 style="text-align:left;"><pre>User ID: {{member.id}}</pre></h2>
+        <h2 style="text-align:left;"><pre>Is Staff?: {{member.is_staff}}</pre></h2>
+        <h2 style="text-align:left;"><pre>Is Active: {{member.is_active}}</pre></h2>
+        <h5 style="text-align:left;"><pre>Date Joined: {{member.date_joined}}</pre></h5>
+        <h5 style="text-align:left;"><pre>Last Login: {{member.last_login}}</pre></h5>
+        <a style="margin-top:50px;text-align:center;" href="{% url 'showvendors' %}" class="btn btn-outline-dark btn-lg">Back</a>     
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+</body>
+</html>

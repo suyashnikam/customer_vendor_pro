@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-image: url('https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png');
+        background-attachment: fixed;
+        background-size: cover;
+      }
+    div{
+        text-align: center;
+    }
+</style>
+<body>
+<div style="margin-top:50px ;" class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 ">
+        <h4 class="alert alert-info"><pre>Customer Information!</pre></h4>
+        <h2 style="text-align:left;"><pre>First Name: {{customer.name|title}}</pre></h2>
+        <h2 style="text-align:left;"><pre>Last Name: {{customer.lname|title}}</pre></h2>
+        <h2 style="text-align:left;"><pre>Customer ID: {{customer.id}}</pre></h2>
+        <h2 style="text-align:left;"><pre>Mobile: {{customer.mobile}}</pre></h2>
+        <h2 style="text-align:left;"><pre>Created by: {{customer.user|title}}</pre></h2>
+        <marquee><small id="Currentuser" style="color:rgb(11, 70, 89)" class="form-text "><h5>This details were submitted by {{customer.user|title}} only!</h5></marquee></small>
+        <a style="margin-top:50px ;" href="{% url 'showcustomers' %}" class="btn btn-outline-dark btn-lg">Back</a>     
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+</body>
+</html>
