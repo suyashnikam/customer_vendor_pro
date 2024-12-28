@@ -39,6 +39,8 @@ python manage.py createsuperuser
 
 python manage.py runserver
 
+**Note**: Here in this project we have  functionality of forget password via email. For sending the reset password link along with generated token. We need one google mail account to trigger the mails from. That mail account may need  kind of developer permission to trigger the mail. So in our settings.py file there are three configurable fields like EMAIL_HOST_USER = '', EMAIL_HOST_PASSWORD = '', DEFAULT_HOST = ''. This host configuration you needs to be done under google smtp settings it should provide you the host user, host password and hostname. Those details you will need to provide here instead of empty strings. Once this fields contains correct string values; your forget password functionality should work as expected.
+
 
 
 Once Webapp is running, you can able to register Vendors with signup option. After Registration you can login to system with the same credentials you provided while creating vendor. Now once you looged in to the system you can now create customer and get list of customer who created under you!!
