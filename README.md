@@ -21,7 +21,7 @@ pip install -r requirements.txt
 
 **Step 6: Change the working directory**
 
-cd myapp
+cd mypro
 
 **Step 7:Apply Django command for makemigration**
 
