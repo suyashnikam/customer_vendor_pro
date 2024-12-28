@@ -19,19 +19,23 @@ source venv/bin/activate
 
 pip install -r requirements.txt
 
-**Step 6: Apply Django command for makemigration**
+**Step 6: Change the working directory**
+
+cd myapp
+
+**Step 7:Apply Django command for makemigration**
 
 python manage.py makemigrations myapp
 
-**Step 7: Apply Django commad for migrate**
+**Step 8: Apply Django commad for migrate**
 
 python manage.py migrate
 
-**Step 8: Create superuser for your Application**
+**Step 9: Create superuser for your Application**
 
 python manage.py createsuperuser
 
-**Step 9: Run the server**
+**Step 10: Run the server**
 
 python manage.py runserver
 
